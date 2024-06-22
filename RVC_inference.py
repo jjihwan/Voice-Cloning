@@ -13,18 +13,19 @@ os.environ["rmvpe_root"] = "assets/rmvpe"
 
 def main(model_name, target_dir):
     sources = [model_name]
-    targets = sorted(glob(f"../{target_dir}/*_Vocals.wav"))
+    targets = sorted(glob(f"{target_dir}/*.wav"))
+    print(targets)
     keys = [0] # change this to [0, -6, 6] to generate 3 keys
     
     for source in sources:
         cfg = Config()
-        cfg.device = "cuda:0"
+        cfg.device = "cuda"
         print(cfg.device)
         vc = VC(cfg)
         vc.get_vc(f"{source}.pth")
         for target in targets:
             for key in keys:
-                target_music = os.path.basename(target).split("_")[0]
+                target_music = os.path.basename(target).split("_Vocals")[0]
 
                 info, output = vc.vc_single(
                     sid=0,
@@ -47,15 +48,15 @@ def main(model_name, target_dir):
                 print(sr)
                 print(wav.shape)
 
-                os.makedirs(f"../results/{source}", exist_ok=True)
-                wavfile.write(f"../results/{source}/{target_music}_{source}_{key}.wav", sr, wav)
-                print(f"../results/{source}/{target_music}_{source}_{key}.wav")
+                os.makedirs(f"./results/{source}", exist_ok=True)
+                wavfile.write(f"./results/{source}/{target_music}_{source}_{key}.wav", sr, wav)
+                print(f"./results/{source}/{target_music}_{source}_{key}.wav")
 
 
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--model_name", type=str, default="iu")
-    parser.add_argument("--target_dir", type=str, default="target_dataest/vocals")
+    parser.add_argument("--target_dir", type=str, default="target_dataset/vocals")
     args = parser.parse_args()
 
     main(args.model_name, args.target_dir)

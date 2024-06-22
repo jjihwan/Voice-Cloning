@@ -2,7 +2,7 @@
 
 ## 1. Set up ⚙️
 ```
-conda create -n rvc python==3.10.14
+conda create -n rvc python=3.10.14
 conda activate rvc
 pip3 install -r requirements.txt
 ```
@@ -67,11 +67,14 @@ python3 RVC_train.py --model_name iu --save_frequency 50 --epochs 200
 
 3. Inference with your own model
     ```
-    python3 RVC_inference.py --model_name iu --target_dir target_dataset/vocals 
+    python3 RVC_inference.py --model_name iu --target_dir target_dataset/vocals
     ```
     You might have to modify L17 to adjust the key if the model and the target keys are different.
     You can find the results in the `results` folder.
 
-
+4. Compose with instruments
+    ```
+    python3 compose_song.py --model_name iu --target_dir target_dataset/instruments
+    ```
 ## Acknowledgement 🤗🤗🤗
-Our codes are built on two nice open-source projects, [RVC-project](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI.git) and [Voval-Remover](https://github.com/tsurumeso/vocal-remover.git). Thanks for the authors!
+Our codes are built on two nice open-source projects, [RVC-project](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI.git) and [Vocal-Remover](https://github.com/tsurumeso/vocal-remover.git). Thanks for the authors!

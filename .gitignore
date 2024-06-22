@@ -6,3 +6,7 @@ target_musics
 target_dataset
 assets
 models
+*.pyc
+__pycache__
+results
+results_combined
