@@ -73,9 +73,12 @@ python3 RVC_train.py --model_name iu --save_frequency 50 --epochs 200
     ```
 
 ### 2.4. One-click Training & Inference 🤩
-    ```
-    sh run.sh iu
-    ```
+
+Run the `run.sh` file after preparing the training datasets(in 2.1.1) and target musics(in 2.3.1).
+You can train the model and inference by it at once! 🔥🔥🔥
+```
+sh run.sh iu
+```
 
 
 ## Acknowledgement 🤗🤗🤗
