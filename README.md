@@ -1,15 +1,10 @@
-# Retrieval-based Voice Conversion (WIP)
+# Retrieval-based Voice Conversion
 
 ## 1. Set up ⚙️
 ```
 conda create -n rvc python=3.10.14
 conda activate rvc
 pip3 install -r requirements.txt
-```
-
-If it occurs errors when downloading parselmouth, following might be a solution:
-```
-pip install setuptools~=57.5.0
 ```
 
 ## 2. Usage 🚀
@@ -76,5 +71,12 @@ python3 RVC_train.py --model_name iu --save_frequency 50 --epochs 200
     ```
     python3 compose_song.py --model_name iu --target_dir target_dataset/instruments
     ```
+
+### 2.4. One-click Training & Inference 🤩
+    ```
+    sh run.sh iu
+    ```
+
+
 ## Acknowledgement 🤗🤗🤗
 Our codes are built on two nice open-source projects, [RVC-project](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI.git) and [Vocal-Remover](https://github.com/tsurumeso/vocal-remover.git). Thanks for the authors!
